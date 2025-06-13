@@ -1,0 +1,29 @@
+# Node.js
+node_modules/
+.env
+npm-debug.log
+yarn-error.log
+
+# React (Frontend) specific
+frontend/node_modules/
+frontend/.env
+frontend/build/
+
+# Backend (Node.js) specific
+backend/node_modules/
+backend/.env
+
+# Python (Microservice) specific
+python-microservice/__pycache__/
+python-microservice/.venv/
+python-microservice/*.pyc
+
+# Logs and temporary files
+*.log
+.DS_Store
+.vscode/ # Ignorar configuraciones locales de VS Code
+
+# General ignore
+*.zip
+*.rar
+*.tar
