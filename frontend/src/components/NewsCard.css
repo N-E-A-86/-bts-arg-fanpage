@@ -1,0 +1,20 @@
+.news-card .news-title-link {
+    text-decoration: none;
+    color: #7b2cbf; /* Color del enlace, similar al título */
+    transition: color 0.3s ease;
+}
+
+.news-card .news-title-link:hover {
+    color: #9d4edd; /* Un color más claro al pasar el mouse */
+}
+
+.news-card .read-more {
+    display: block; /* Asegúrate de que el botón o enlace ocupe todo el ancho */
+    text-align: center;
+    padding: 10px 0;
+    background-color: #9d4edd;
+    color: white;
+    text-decoration: none;
+    border-radius: 0 0 8px 8px; /* Bordes solo en la parte inferior */
+    margin-top: auto; /* Empuja el botón al final de la tarjeta */
+}
