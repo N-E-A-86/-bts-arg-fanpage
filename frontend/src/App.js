@@ -1,30 +1,43 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// Importa los componentes desde sus nuevos archivos
 import Navbar from './components/Navbar';
-import Home from './components/Home';
 import NewsList from './components/NewsList';
-import NewsDetail from './components/NewsDetail'; // Ahora importa el componente funcional
-import Footer from './components/Footer';
-
-import './App.css'; // Asegúrate de que tu App.css siga existiendo
+import NewsDetail from './components/NewsDetail';
+import Register from './components/Auth/Register';
+import Login from './components/Auth/Login';
+import Home from './components/Home'; // Asegúrate de que esta línea exista y sea correcta
+import { AuthProvider } from './context/AuthContext';
+// import Footer from './components/Footer'; // Si lo tienes
+import './App.css';
 
 function App() {
   return (
     <Router>
-      <div className="App"> {/* Envuelve toda la app con una div 'App' si quieres */}
-        <Navbar /> {/* Usa el componente Navbar */}
-        <main>
+      <AuthProvider>
+        <Navbar />
+        <div className="container mt-4">
           <Routes>
-            <Route path="/" element={<Home />} /> {/* Usa el componente Home */}
-            <Route path="/news" element={<NewsList />} /> {/* Usa el componente NewsList */}
-            {/* Esta ruta es la clave para ver el detalle de la noticia */}
+            {/* ¡¡¡Esta es la línea CLAVE para tu portada!!! */}
+            <Route path="/" element={<Home />} exact />
+
+            <Route path="/news" element={<NewsList />} /> {/* Las noticias en /news */}
             <Route path="/news/:id" element={<NewsDetail />} />
-            {/* Aquí puedes agregar más rutas para futuras secciones */}
+
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+
+            {/* Tus otras rutas de categorías */}
+            <Route path="/articles" element={<div>Página de Artículos (Próximamente)</div>} />
+            <Route path="/events-army" element={<div>Página de Eventos ARMY (Próximamente)</div>} />
+            <Route path="/multimedia" element={<div>Página de Multimedia (Próximamente)</div>} />
+            <Route path="/translations" element={<div>Página de Traducciones (Próximamente)</div>} />
+            <Route path="/community" element={<div>Página de Comunidad (Próximamente)</div>} />
+            <Route path="/merchandise" element={<div>Página de Mercancía (Próximamente)</div>} />
+
           </Routes>
-        </main>
-        <Footer /> {/* Usa el componente Footer */}
-      </div>
+        </div>
+        {/* {Footer && <Footer />} */}
+      </AuthProvider>
     </Router>
   );
 }

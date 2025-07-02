@@ -39,52 +39,6 @@
   }
 }
 
-/* Estilos para el Navbar (asegurate de que los estilos de index.css no los anulen si no es intencional) */
-.navbar {
-  background-color: #7b2cbf; /* Purple */
-  padding: 15px 0;
-  color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.navbar .logo {
-  font-size: 1.8em;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-}
-
-.navbar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-.navbar ul li {
-  margin-left: 25px;
-}
-
-.navbar ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.1em;
-  transition: color 0.3s ease;
-}
-
-.navbar ul li a:hover {
-  color: #c78dff; /* Lighter purple */
-}
-
 /* Estilos para la sección de bienvenida */
 .welcome-section {
   text-align: center;
@@ -217,4 +171,43 @@
   text-align: center;
   padding: 20px 0;
   margin-top: 30px;
+}
+
+/* Estilos personalizados para el Navbar de BTS (¡ESTOS SON LOS QUE QUEREMOS MANTENER!) */
+.bg-bts-purple {
+  background-color: #5B3979 !important; /* Un morado oscuro distintivo de BTS */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #FDFDFD; /* Blanco brillante para el texto de los enlaces */
+  font-weight: 500; /* Un poco más de grosor para la fuente */
+  transition: color 0.3s ease; /* Suave transición al pasar el mouse */
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #9D7BCF; /* Un morado más claro o lila al pasar el mouse */
+}
+
+.navbar-dark .navbar-brand {
+  color: #FDFDFD; /* Color del texto de la marca */
+  font-weight: bold; /* Nombre de la marca en negrita */
+  letter-spacing: 1px; /* Un poco de espacio entre letras */
+}
+
+/* Opcional: Estilo para el estado activo de NavLink */
+.navbar-nav .nav-link.active {
+  color: #9D7BCF !important; /* Morado claro para el enlace activo */
+  font-weight: bold;
+}
+
+/* Ajustes generales para el contenido principal para que no quede pegado al navbar */
+body {
+    background-color: #f0f2f5; /* Un fondo gris claro para el cuerpo */
+}
+
+/* Nota: el .container está definido dos veces. Mantendremos el último si es más general. */
+/* Este .container es probablemente para centrar el contenido principal */
+.container {
+    padding-top: 20px; /* Espacio superior para el contenido */
+    padding-bottom: 20px; /* Espacio inferior para el contenido */
 }

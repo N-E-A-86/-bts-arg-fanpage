@@ -20,47 +20,8 @@ code {
   padding: 20px;
 }
 
-.navbar {
-  background-color: #7b2cbf; /* Purple */
-  padding: 15px 0;
-  color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
+/* ¡BLOQUE DEL NAVBAR ELIMINADO DE AQUÍ! */
 
-.navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navbar .logo {
-  font-size: 1.8em;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-}
-
-.navbar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-.navbar ul li {
-  margin-left: 25px;
-}
-
-.navbar ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.1em;
-  transition: color 0.3s ease;
-}
-
-.navbar ul li a:hover {
-  color: #c78dff; /* Lighter purple */
-}
 
 main {
   padding: 40px 0;

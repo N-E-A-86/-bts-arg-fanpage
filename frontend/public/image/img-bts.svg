@@ -1,0 +1,40 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo circular morado -->
+  <circle cx="250" cy="250" r="245" fill="#6A0DAD"/>
+  <circle cx="250" cy="250" r="235" fill="url(#grad)"/>
+  <defs>
+    <radialGradient id="grad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#9370DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6A0DAD;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+
+  <!-- Logo de BTS con colores de Argentina (Celeste) -->
+  <polygon points="150,130 230,130 230,340 150,370" fill="#75AADB"/>
+  <polygon points="270,130 350,130 350,370 270,340" fill="#75AADB"/>
+
+  <!-- Sol de Mayo en el centro -->
+  <g fill="#FFD700" stroke="#DAA520" stroke-width="2">
+    <circle cx="250" cy="250" r="20"/>
+    <!-- Rayos del sol -->
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(0 250 250)"/>
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(22.5 250 250)"/>
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(45 250 250)"/>
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(67.5 250 250)"/>
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(90 250 250)"/>
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(112.5 250 250)"/>
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(135 250 250)"/>
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(157.5 250 250)"/>
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(180 250 250)"/>
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(202.5 250 250)"/>
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(225 250 250)"/>
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(247.5 250 250)"/>
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(270 250 250)"/>
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(292.5 250 250)"/>
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(315 250 250)"/>
+    <path d="M250,220 l5,15 h-10 z" transform="rotate(337.5 250 250)"/>
+  </g>
+
+  <!-- Texto "BTS" -->
+  <text x="250" y="440" font-family="Impact, Arial Black, sans-serif" font-size="60" fill="white" text-anchor="middle">BTS</text>
+</svg>
