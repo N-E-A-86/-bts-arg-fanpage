@@ -63,12 +63,14 @@
   margin-bottom: 30px;
 }
 
+/* Estilos para la imagen principal en Home.js */
 .hero-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 100%; /* La imagen nunca será más ancha que su contenedor padre */
+  height: auto;    /* La altura se ajustará automáticamente para mantener la proporción */
+  display: block;  /* Para eliminar el espacio extra debajo de las imágenes */
+  margin: 0 auto 30px auto; /* Centra la imagen y le da margen inferior */
+  border-radius: 8px; /* Si quieres bordes redondeados */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Sombra sutil */
 }
 
 .cta-button {
