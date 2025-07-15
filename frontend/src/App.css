@@ -43,9 +43,9 @@
 .welcome-section {
   text-align: center;
   padding: 50px 20px;
-  background-color: white;
+  background-color: rgb(8, 8, 8);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(192, 86, 169, 0.08);
   margin: 40px auto; /* Centrar y dar espacio */
   max-width: 800px; /* Ancho máximo para la sección */
 }
@@ -59,13 +59,13 @@
 .welcome-section p {
   font-size: 1.2em;
   line-height: 1.6;
-  color: #555;
+  color: #fdf9f9;
   margin-bottom: 30px;
 }
 
 /* Estilos para la imagen principal en Home.js */
 .hero-image {
-  max-width: 100%; /* La imagen nunca será más ancha que su contenedor padre */
+  max-width: 40%; /* La imagen nunca será más ancha que su contenedor padre */
   height: auto;    /* La altura se ajustará automáticamente para mantener la proporción */
   display: block;  /* Para eliminar el espacio extra debajo de las imágenes */
   margin: 0 auto 30px auto; /* Centra la imagen y le da margen inferior */
@@ -204,7 +204,7 @@
 
 /* Ajustes generales para el contenido principal para que no quede pegado al navbar */
 body {
-    background-color: #f0f2f5; /* Un fondo gris claro para el cuerpo */
+    background-color: #080808a2; /* Un fondo gris claro para el cuerpo */
 }
 
 /* Nota: el .container está definido dos veces. Mantendremos el último si es más general. */
