@@ -1,29 +1,41 @@
-# Node.js
-node_modules/
-.env
-npm-debug.log
-yarn-error.log
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# React (Frontend) specific
-frontend/node_modules/
-frontend/.env
-frontend/build/
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
-# Backend (Node.js) specific
-backend/node_modules/
-backend/.env
+# testing
+/coverage
 
-# Python (Microservice) specific
-python-microservice/__pycache__/
-python-microservice/.venv/
-python-microservice/*.pyc
+# next.js
+/.next/
+/out/
 
-# Logs and temporary files
-*.log
+# production
+/build
+
+# misc
 .DS_Store
-.vscode/ # Ignorar configuraciones locales de VS Code
+*.pem
 
-# General ignore
-*.zip
-*.rar
-*.tar
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
