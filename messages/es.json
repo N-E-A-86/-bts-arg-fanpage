@@ -1,0 +1,51 @@
+{
+  "HomePage": {
+    "hero": {
+      "badge": "Fanpage Oficial Argentina",
+      "title": "¡Bienvenid",
+      "subtitle": "Tu fuente definitiva para todas las novedades, traducciones exclusivas y eventos épicos de BTS en Argentina.",
+      "btnNews": "Ver Últimas Noticias",
+      "btnJoin": "Unirse a la Comunidad"
+    },
+    "features": {
+      "translations": {
+        "title": "Traducciones",
+        "description": "Traducciones precisas y rápidas de entrevistas, canciones y contenido oficial al español."
+      },
+      "events": {
+        "title": "Eventos locales",
+        "description": "Puntos de encuentro, proyectos de cumpleaños y celebraciones ARMY en todo el país."
+      },
+      "community": {
+        "title": "Comunidad",
+        "description": "Conecta con otros ARMYs argentinos, comparte teorías y vive la pasión por Bangtan."
+      }
+    },
+    "about": {
+      "title": "Apoyando a Bangtan desde 20XX",
+      "quote": "We are not seven with you.",
+      "description": "Nuestra misión es unir a la comunidad ARMY en Argentina y proveer un espacio seguro y emocionante para compartir nuestro amor por BTS.",
+      "stats": {
+        "followers": "Seguidores",
+        "news": "Noticias",
+        "hq": "Sede Central"
+      }
+    }
+  },
+  "Navbar": {
+    "home": "Inicio",
+    "news": "Noticias",
+    "articles": "Artículos",
+    "events": "Eventos ARMY",
+    "multimedia": "Multimedia",
+    "community": "Comunidad",
+    "login": "Login",
+    "join": "Join ARMY"
+  },
+  "Footer": {
+    "tagline": "La comunidad más grande de Argentina dedicada a apoyar y seguir a BTS.",
+    "nav": "Navegación",
+    "social": "Social",
+    "rights": "WE ARE NOT SEVEN WITH YOU."
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "HomePage": {
+    "hero": {
+      "badge": "Official Global Fanpage",
+      "title": "Welcome to",
+      "subtitle": "Your ultimate source for all news, exclusive translations, and epic BTS events in the region.",
+      "btnNews": "View Latest News",
+      "btnJoin": "Join the Community"
+    },
+    "features": {
+      "translations": {
+        "title": "Translations",
+        "description": "Accurate and fast translations of interviews, songs, and official content."
+      },
+      "events": {
+        "title": "Local Events",
+        "description": "Meetup points, birthday projects, and ARMY celebrations across the country."
+      },
+      "community": {
+        "title": "Community",
+        "description": "Connect with other ARMYs, share theories, and live the passion for Bangtan."
+      }
+    },
+    "about": {
+      "title": "Supporting Bangtan since 20XX",
+      "quote": "We are not seven with you.",
+      "description": "Our mission is to unite the ARMY community and provide a safe and exciting space to share our love for BTS.",
+      "stats": {
+        "followers": "Followers",
+        "news": "News",
+        "hq": "Headquarters"
+      }
+    }
+  },
+  "Navbar": {
+    "home": "Home",
+    "news": "News",
+    "articles": "Articles",
+    "events": "ARMY Events",
+    "multimedia": "Multimedia",
+    "community": "Community",
+    "login": "Login",
+    "join": "Join ARMY"
+  },
+  "Footer": {
+    "tagline": "The largest community dedicated to supporting and following BTS.",
+    "nav": "Navigation",
+    "social": "Social",
+    "rights": "WE ARE NOT SEVEN WITH YOU."
+  }
+}

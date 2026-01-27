@@ -1,0 +1,51 @@
+{
+  "HomePage": {
+    "hero": {
+      "badge": "Fanpage Oficial Brasil",
+      "title": "Bem-vind",
+      "subtitle": "Sua fuente definitiva para todas as novidades, traducciones exclusivas y eventos épicos do BTS no Brasil.",
+      "btnNews": "Ver Últimas Notícias",
+      "btnJoin": "Juntar-se à Comunidade"
+    },
+    "features": {
+      "translations": {
+        "title": "Traduções",
+        "description": "Traduções precisas y rápidas de entrevistas, músicas y conteúdo oficial para o português."
+      },
+      "events": {
+        "title": "Eventos locais",
+        "description": "Pontos de encontro, projetos de aniversário y celebrações ARMY em todo o país."
+      },
+      "community": {
+        "title": "Comunidade",
+        "description": "Conecte-se com outros ARMYs brasileiros, compartilhe teorias y viva a paixão pelo Bangtan."
+      }
+    },
+    "about": {
+      "title": "Apoiando o Bangtan desde 20XX",
+      "quote": "We are not seven with you.",
+      "description": "Nossa missão é unir a comunidade ARMY no Brasil y oferecer um espacio seguro y emocionante para compartir nosso amor pelo BTS.",
+      "stats": {
+        "followers": "Seguidores",
+        "news": "Notícias",
+        "hq": "Sede Central"
+      }
+    }
+  },
+  "Navbar": {
+    "home": "Início",
+    "news": "Notícias",
+    "articles": "Artigos",
+    "events": "Eventos ARMY",
+    "multimedia": "Multimídia",
+    "community": "Comunidade",
+    "login": "Login",
+    "join": "Join ARMY"
+  },
+  "Footer": {
+    "tagline": "A maior comunidade dedicada a apoiar y seguir o BTS.",
+    "nav": "Navegação",
+    "social": "Social",
+    "rights": "WE ARE NOT SEVEN WITH YOU."
+  }
+}
