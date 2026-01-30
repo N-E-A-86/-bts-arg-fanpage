@@ -1,10 +1,12 @@
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
-import { useTranslations, useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { getLatestNews } from "@/services/newsService";
 
-export default function Home() {
-  const t = useTranslations("HomePage");
-  const locale = useLocale();
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations("HomePage");
+  const latestNews = await getLatestNews(locale, 3);
 
   return (
     <main className="min-h-screen">
@@ -28,7 +30,7 @@ export default function Home() {
               {t("hero.badge")}
             </span>
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 leading-[0.9]">
-              {t("hero.title")}<span className="premium-gradient">x</span> al <br />
+              {t("hero.title")}<span className="premium-gradient">@</span> al <br />
               <span className="text-white">ARMY {locale === 'pt' ? 'Brasil' : 'Argentina'}</span>
             </h1>
             <p className="text-xl text-text-muted mb-10 max-w-lg">
@@ -55,7 +57,6 @@ export default function Home() {
       <section className="py-24 bg-color-background">
         <div className="section-container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Feature 1 */}
             <div className="glass-card p-10 hover:border-primary/50 transition-all duration-500 group">
               <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 border border-primary/30 group-hover:bg-primary/40 transition-colors">
                 <svg className="w-6 h-6 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,7 +67,6 @@ export default function Home() {
               <p className="text-text-muted">{t("features.translations.description")}</p>
             </div>
 
-            {/* Feature 2 */}
             <div className="glass-card p-10 hover:border-primary/50 transition-all duration-500 group">
               <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 border border-primary/30 group-hover:bg-primary/40 transition-colors">
                 <svg className="w-6 h-6 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -77,7 +77,6 @@ export default function Home() {
               <p className="text-text-muted">{t("features.events.description")}</p>
             </div>
 
-            {/* Feature 3 */}
             <div className="glass-card p-10 hover:border-primary/50 transition-all duration-500 group">
               <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 border border-primary/30 group-hover:bg-primary/40 transition-colors">
                 <svg className="w-6 h-6 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -91,7 +90,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BTS Image Focus */}
+      {/* Latest News Section */}
+      {latestNews.length > 0 && (
+        <section className="py-24 bg-surface/30">
+          <div className="section-container">
+            <div className="flex justify-between items-end mb-12">
+              <div>
+                <h2 className="text-4xl font-bold mb-4">Últimas <span className="premium-gradient">Noticias</span></h2>
+                <p className="text-text-muted text-lg">Mantente al día con Bangtan.</p>
+              </div>
+              <Link href="/news" className="text-primary hover:text-primary-light transition-colors font-medium">
+                Ver todas &rarr;
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {latestNews.map((news) => (
+                <Link key={news.id} href={`/news/${news.slug}`} className="glass-card overflow-hidden group hover:scale-[1.02] transition-all duration-300">
+                  <div className="relative h-48 bg-primary/10">
+                    {news.image_url ? (
+                      <Image src={news.image_url} alt={news.title} fill className="object-cover" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-primary/30">
+                        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-6">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary mb-2 block">{news.category}</span>
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors line-clamp-2">{news.title}</h3>
+                    <p className="text-text-muted text-sm line-clamp-3 mb-4">{news.content}</p>
+                    <div className="text-[11px] text-text-muted/60 uppercase tracking-tighter">
+                      {new Date(news.published_at).toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* BTS Image Focus Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="section-container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative aspect-video rounded-3xl overflow-hidden glass-card p-2 border-primary/20">
