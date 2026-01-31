@@ -32,15 +32,42 @@
       }
     }
   },
+  "NewsPage": {
+    "badge": "Notícias ARMY",
+    "subtitle": "Explore as últimas novidades, anúncios oficiais e atualizações diárias do mundo do BTS.",
+    "noNews": "Não há notícias disponíveis no momento."
+  },
   "Navbar": {
     "home": "Início",
     "news": "Notícias",
+    "tour": "World Tour",
     "articles": "Artigos",
     "events": "Eventos ARMY",
     "multimedia": "Multimídia",
-    "community": "Comunidade",
-    "login": "Login",
-    "join": "Join ARMY"
+    "community": "Em breve: Fóruns, perfis de usuário e conexão ARMY.",
+    "comingSoon": "Em breve..."
+  },
+  "TourPage": {
+    "title": "BTS World Tour",
+    "subtitle": "Informações atualizadas sobre o retorno do BTS à América do Sul.",
+    "ar": {
+      "title": "Argentina",
+      "status": "Rumores / Pendente",
+      "venue": "Estádio River Plate",
+      "guide": "Guia de compra AllAccess"
+    },
+    "br": {
+      "title": "Brasil",
+      "status": "Confirmado pela imprensa",
+      "venue": "Allianz Parque",
+      "guide": "Guia de compra Eventim"
+    },
+    "cl": {
+      "title": "Chile",
+      "status": "Negociações",
+      "venue": "Estádio Nacional",
+      "guide": "Guia de compra PuntoTicket"
+    }
   },
   "Footer": {
     "tagline": "A maior comunidade dedicada a apoiar y seguir o BTS.",

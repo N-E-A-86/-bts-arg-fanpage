@@ -32,13 +32,42 @@
       }
     }
   },
+  "NewsPage": {
+    "badge": "ARMY News",
+    "subtitle": "Explore the latest news, official announcements, and daily updates from the world of BTS.",
+    "noNews": "There are no news available at this moment."
+  },
+  "TourPage": {
+    "title": "BTS World Tour",
+    "subtitle": "Updated information about BTS's return to South America.",
+    "ar": {
+      "title": "Argentina",
+      "status": "Rumors / Pending",
+      "venue": "River Plate Stadium",
+      "guide": "AllAccess Buying Guide"
+    },
+    "br": {
+      "title": "Brazil",
+      "status": "Confirmed by press",
+      "venue": "Allianz Parque",
+      "guide": "Eventim Buying Guide"
+    },
+    "cl": {
+      "title": "Chile",
+      "status": "Negotiations",
+      "venue": "National Stadium",
+      "guide": "PuntoTicket Buying Guide"
+    }
+  },
   "Navbar": {
     "home": "Home",
     "news": "News",
+    "tour": "World Tour",
     "articles": "Articles",
     "events": "ARMY Events",
     "multimedia": "Multimedia",
-    "community": "Community",
+    "community": "Coming Soon: Forums, user profiles, and ARMY connection.",
+    "comingSoon": "Coming Soon...",
     "login": "Login",
     "join": "Join ARMY"
   },

@@ -1,9 +1,12 @@
 :root {
-  --color-primary: #7d52f4; /* BTS Purple */
+  --color-primary-raw: 125, 82, 244;
+  --color-primary: rgb(var(--color-primary-raw));
   --color-primary-dark: #5e3bbd;
   --color-primary-light: #a688fa;
-  --color-background: #0a0a0c;
-  --color-surface: #16161a;
+  --color-background-raw: 10, 10, 12;
+  --color-background: rgb(var(--color-background-raw));
+  --color-surface-raw: 22, 22, 26;
+  --color-surface: rgb(var(--color-surface-raw));
   --color-text: #f1f1f1;
   --color-text-muted: #a0a0a0;
   --color-accent: #ff00ff;
@@ -34,6 +37,7 @@ a {
 .premium-gradient {
   background: linear-gradient(135deg, var(--color-primary) 0%, #bb33ff 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -86,8 +90,15 @@ a {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {
