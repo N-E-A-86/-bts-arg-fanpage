@@ -56,3 +56,70 @@ CREATE TABLE IF NOT EXISTS scraper_logs (
   started_at TIMESTAMPTZ DEFAULT NOW(),
   ended_at TIMESTAMPTZ
 );
+
+-- 5. Comments Table
+CREATE TABLE IF NOT EXISTS comments (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  news_id UUID REFERENCES news(id) ON DELETE CASCADE NOT NULL,
+  author_name TEXT NOT NULL,
+  author_id UUID REFERENCES auth.users ON DELETE SET NULL, -- Optional if user is logged in
+  content TEXT NOT NULL,
+  is_approved BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Create index for faster comment queries
+CREATE INDEX IF NOT EXISTS idx_comments_news_id ON comments(news_id);
+CREATE INDEX IF NOT EXISTS idx_comments_approved ON comments(is_approved);
+
+-- 6. Gallery Table (Fan Photos)
+CREATE TABLE IF NOT EXISTS gallery (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  image_url TEXT NOT NULL,
+  caption TEXT,
+  author_name TEXT NOT NULL,
+  author_id UUID REFERENCES auth.users ON DELETE SET NULL, -- Optional if user is logged in
+  is_approved BOOLEAN DEFAULT FALSE,
+  likes_count INTEGER DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Create index for faster gallery queries
+CREATE INDEX IF NOT EXISTS idx_gallery_approved ON gallery(is_approved);
+CREATE INDEX IF NOT EXISTS idx_gallery_created_at ON gallery(created_at DESC);
+
+-- 7. Reactions Table (for news articles)
+CREATE TABLE IF NOT EXISTS reactions (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  news_id UUID REFERENCES news(id) ON DELETE CASCADE NOT NULL,
+  user_id UUID REFERENCES auth.users ON DELETE CASCADE,
+  reaction_type TEXT NOT NULL, -- heart, fire, purple_heart, borahae
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE(news_id, user_id, reaction_type)
+);
+
+-- Create index for faster reaction queries
+CREATE INDEX IF NOT EXISTS idx_reactions_news_id ON reactions(news_id);
+
+-- 8. Admin Users Table
+CREATE TABLE IF NOT EXISTS admin_users (
+  user_id UUID REFERENCES auth.users ON DELETE CASCADE PRIMARY KEY,
+  role TEXT DEFAULT 'moderator', -- moderator, admin, super_admin
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Add updated_at trigger for comments
+CREATE OR REPLACE FUNCTION update_updated_at_column()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = NOW();
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER update_comments_updated_at BEFORE UPDATE ON comments
+FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER update_news_updated_at BEFORE UPDATE ON news
+FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();

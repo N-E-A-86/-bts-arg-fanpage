@@ -2,6 +2,7 @@ import { getNewsBySlug } from "@/services/newsService";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
+import CommentsSection from "@/components/comments/CommentsSection";
 
 export default async function NewsDetailPage({
     params
@@ -64,6 +65,10 @@ export default async function NewsDetailPage({
                         paragraph.trim() && <p key={index}>{paragraph}</p>
                     ))}
                 </article>
+
+                <section className="mt-16 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                    <CommentsSection newsId={newsItem.id} />
+                </section>
 
                 <footer className="mt-16 pt-16 border-t border-glass-border flex flex-col md:flex-row justify-between items-center gap-8">
                     <div className="text-center md:text-left">

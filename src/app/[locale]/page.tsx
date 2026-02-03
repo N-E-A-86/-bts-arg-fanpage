@@ -11,25 +11,25 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/hero.png"
-            alt="BTS Aesthetic Background"
-            fill
-            className="object-cover opacity-60"
-            priority
+        <div className="absolute inset-0 w-full h-full z-0">
+          <div
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: 'url(/images/hero.png)',
+              opacity: 0.6
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-color-background" />
         </div>
 
-        <div className="section-container relative z-10 animate-fade-in">
+        <div className="section-container relative z-10 animate-fade-in py-32">
           <div className="max-w-2xl">
             <span className="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] uppercase bg-primary/20 text-primary-light rounded-full border border-primary/30">
               {t("hero.badge")}
             </span>
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 leading-[0.9]">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-8 leading-tight text-shadow">
               {t("hero.title")}<span className="premium-gradient">@</span> al <br />
               <span className="text-white">ARMY {locale === 'pt' ? 'Brasil' : 'Argentina'}</span>
             </h1>
@@ -48,7 +48,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
 
         {/* Floating elements or scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50 z-10">
           <div className="w-1 h-12 rounded-full bg-gradient-to-b from-primary to-transparent" />
         </div>
       </section>

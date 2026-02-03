@@ -1,18 +1,33 @@
 :root {
-  --color-primary-raw: 125, 82, 244;
+  /* Purple Color System - BTS Theme */
+  --color-primary-raw: 138, 77, 255;
   --color-primary: rgb(var(--color-primary-raw));
   --color-primary-dark: #5e3bbd;
-  --color-primary-light: #a688fa;
-  --color-background-raw: 10, 10, 12;
+  --color-primary-light: #b99aff;
+
+  /* Dark Background System */
+  --color-background-raw: 10, 10, 15;
   --color-background: rgb(var(--color-background-raw));
-  --color-surface-raw: 22, 22, 26;
+  --color-surface-raw: 20, 20, 28;
   --color-surface: rgb(var(--color-surface-raw));
-  --color-text: #f1f1f1;
-  --color-text-muted: #a0a0a0;
-  --color-accent: #ff00ff;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --glass-effect: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.1);
+
+  /* Text Colors */
+  --color-text: #ffffff;
+  --color-text-secondary: #e8e8e8;
+  --color-text-muted: #9ca3af;
+  --color-text-disabled: #6b7280;
+
+  /* Accent Colors */
+  --color-accent: #c084fc;
+  --color-accent-light: #e9d5ff;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+
+  /* Glass Effect */
+  --glass-effect: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
 
 * {
@@ -21,17 +36,49 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-sans);
   overflow-x: hidden;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface);
+  border-radius: 5px;
+  border: 2px solid var(--color-background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-light);
 }
 
 .premium-gradient {
@@ -43,10 +90,17 @@ a {
 
 .glass-card {
   background: var(--glass-effect);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: 24px;
+  box-shadow: var(--glass-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(138, 77, 255, 0.3);
+  box-shadow: 0 12px 48px 0 rgba(138, 77, 255, 0.15);
 }
 
 .btn-premium {
@@ -58,35 +112,63 @@ a {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border: none;
+  outline: none;
+  text-decoration: none;
 }
 
 .btn-primary {
-  background: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #a855f7 100%);
   color: white;
-  box-shadow: 0 4px 20px rgba(125, 82, 244, 0.4);
+  box-shadow: 0 4px 20px rgba(138, 77, 255, 0.4);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(125, 82, 244, 0.6);
-  background: var(--color-primary-light);
+  box-shadow: 0 8px 30px rgba(138, 77, 255, 0.6);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
 }
 
 .btn-outline {
   background: transparent;
-  border: 1px solid var(--glass-border);
+  border: 2px solid var(--glass-border);
   color: var(--color-text);
 }
 
 .btn-outline:hover {
   background: var(--glass-effect);
   border-color: var(--color-primary);
+  color: var(--color-primary-light);
 }
 
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+/* Utility Classes */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #bb33ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(138, 77, 255, 0.2);
 }
 
 @keyframes fadeIn {

@@ -2,15 +2,36 @@
 
 import { Link } from "@/i18n/routing";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { supabase } from "@/lib/supabase/client";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const router = useRouter();
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Logic for Supabase Auth will go here
-        console.log("Login attempt:", { email });
+        setLoading(true);
+        setError(null);
+
+        try {
+            const { error: authError } = await supabase.auth.signInWithPassword({
+                email,
+                password,
+            });
+
+            if (authError) throw authError;
+
+            router.push("/");
+            router.refresh();
+        } catch (err: any) {
+            setError(err.message || "Error al iniciar sesión");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -25,6 +46,12 @@ export default function LoginPage() {
                         <p className="text-text-muted">Inicia sesión para activar tus alertas.</p>
                     </header>
 
+                    {error && (
+                        <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm animate-shake">
+                            {error}
+                        </div>
+                    )}
+
                     <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                         <div className="space-y-2">
                             <label className="text-xs font-bold uppercase tracking-widest text-text-muted">Email</label>
@@ -35,6 +62,7 @@ export default function LoginPage() {
                                 className="w-full bg-surface/50 border border-glass-border rounded-xl px-5 py-4 focus:outline-none focus:border-primary/50 transition-colors"
                                 placeholder="tu@email.com"
                                 required
+                                disabled={loading}
                             />
                         </div>
                         <div className="space-y-2">
@@ -46,11 +74,16 @@ export default function LoginPage() {
                                 className="w-full bg-surface/50 border border-glass-border rounded-xl px-5 py-4 focus:outline-none focus:border-primary/50 transition-colors"
                                 placeholder="••••••••"
                                 required
+                                disabled={loading}
                             />
                         </div>
 
-                        <button type="submit" className="btn-premium btn-primary w-full py-4 font-bold text-lg">
-                            Entrar
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className="btn-premium btn-primary w-full py-4 font-bold text-lg disabled:opacity-50"
+                        >
+                            {loading ? "Cargando..." : "Entrar"}
                         </button>
                     </form>
 
